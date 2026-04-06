@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Wallet Clone - Finansal Yönetim</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="/src/css/style.css">
+</head>
+<body class="bg-gray-50 font-['Outfit'] text-gray-800 antialiased overflow-x-hidden">
+    <div id="app-container" class="mx-auto min-h-screen flex flex-col relative" style="max-width: 420px;">
+        <!-- Top Bar -->
+        <header id="top-bar" class="sticky top-0 z-40 bg-gradient-to-r from-[#1b8a5a] to-[#25a96a] text-white px-4 py-3 flex items-center justify-between shadow-md">
+            <div class="flex items-center gap-3">
+                <button id="menu-toggle" class="p-1 active:scale-95 transition-transform">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+                </button>
+                <h1 id="page-title" class="text-lg font-semibold">Anasayfa</h1>
+            </div>
+            <div class="flex items-center gap-3">
+                <div id="scenario-selector-container" class="hidden sm:flex items-center gap-1 bg-white/20 px-2 py-1 rounded text-xs">
+                    <span id="current-scenario">Varsayılan</span>
+                </div>
+                <button class="p-1 relative">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path><path d="M13.73 21a2 2 0 0 1-3.46 0"></path></svg>
+                    <span class="absolute top-0 right-0 w-2 h-2 bg-red-500 rounded-full border border-white"></span>
+                </button>
+            </div>
+        </header>
+
+        <!-- Main Content Area -->
+        <main id="main-content" class="flex-1 overflow-y-auto pb-24">
+            <!-- Content will be injected here -->
+        </main>
+
+        <!-- Bottom Actions Bar -->
+        <div id="bottom-actions" class="fixed bottom-0 left-0 right-0 bg-white border-t border-gray-100 p-2 flex justify-around items-center z-30 mx-auto" style="max-width: 420px;">
+            <button id="btn-demo" class="flex flex-col items-center gap-1 text-[10px] text-gray-500">
+                <div class="p-2 bg-blue-50 text-blue-600 rounded-lg"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg></div>
+                <span>Demo</span>
+            </button>
+            <button id="btn-clear" class="flex flex-col items-center gap-1 text-[10px] text-gray-500">
+                <div class="p-2 bg-red-50 text-red-600 rounded-lg"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path><line x1="10" y1="11" x2="10" y2="17"></line><line x1="14" y1="11" x2="14" y2="17"></line></svg></div>
+                <span>Sil</span>
+            </button>
+            <button id="btn-export" class="flex flex-col items-center gap-1 text-[10px] text-gray-500">
+                <div class="p-2 bg-green-50 text-green-600 rounded-lg"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="17 8 12 3 7 8"></polyline><line x1="12" y1="3" x2="12" y2="15"></line></svg></div>
+                <span>Dışa Aktar</span>
+            </button>
+            <button id="btn-import" class="flex flex-col items-center gap-1 text-[10px] text-gray-500">
+                <div class="p-2 bg-orange-50 text-orange-600 rounded-lg"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg></div>
+                <span>İçe Al</span>
+            </button>
+        </div>
+
+        <!-- FAB -->
+        <button id="fab-add" class="fixed bottom-20 right-6 w-14 h-14 bg-[#25a96a] text-white rounded-full shadow-xl flex items-center justify-center z-40 active:scale-90 transition-transform">
+            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+        </button>
+
+        <!-- Sidebar Menu -->
+        <div id="side-menu-overlay" class="fixed inset-0 bg-black/50 z-50 hidden transition-opacity"></div>
+        <aside id="side-menu" class="fixed top-0 left-0 h-full w-[270px] bg-white z-50 -translate-x-full transition-transform duration-300 shadow-2xl overflow-y-auto">
+            <!-- Menu content will be injected here -->
+        </aside>
+
+        <!-- Modals Container -->
+        <div id="modal-container" class="fixed inset-0 z-[60] hidden flex items-center justify-center p-4 bg-black/60">
+            <!-- Modal content will be injected here -->
+        </div>
+
+        <!-- Banner Notification -->
+        <div id="banner-notification" class="fixed top-0 left-0 right-0 z-[100] -translate-y-full transition-transform duration-300 flex justify-center p-4 pointer-events-none">
+            <div class="bg-gray-800 text-white px-6 py-3 rounded-full shadow-lg text-sm font-medium">
+                Bildirim mesajı
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script type="module" src="/src/js/controller/app.js"></script>
+</body>
+</html>
